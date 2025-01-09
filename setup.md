@@ -4,11 +4,11 @@ title: Setup
 
 # Run exercises in cmslpc
 
-Open a terminal/console, connect to cmslpc-sl7 and prepare your working area:
+Open a terminal/console, connect to cmslpc-el9 and prepare your working area:
 
 ~~~
 kinit username@FNAL.GOV
-ssh -L localhost:8888:localhost:8888 <YOUR USERNAME>@cmslpc-sl7.fnal.gov
+ssh -L localhost:8888:localhost:8888 <YOUR USERNAME>@cmslpc-el9.fnal.gov
 ~~~
 {: .language-bash}
 
@@ -20,7 +20,7 @@ cmsrel CMSSW_11_3_4
 cd CMSSW_11_3_4/src
 cmsenv
 
-git clone git@github.com:Christinaw97/MDS_CMSDAS.git -b 2024
+git clone git@github.com:kakwok/MDS_CMSDAS.git -b 2025
 cd MDS_CMSDAS 
 ~~~
 {: .language-bash}
@@ -29,7 +29,7 @@ cd MDS_CMSDAS
 The following commands one has to do it *everytime you log in into a new session*. They load the
 environment and the packages needed for the exercises and open a jupyter notebook:
 ~~~
-source /cvmfs/sft.cern.ch/lcg/views/LCG_103/x86_64-centos7-gcc11-opt/setup.sh
+source /cvmfs/sft.cern.ch/lcg/views/LCG_105/x86_64-el9-gcc11-opt/setup.sh
 jupyter notebook --no-browser --port=8888 --ip 127.0.0.1
 ~~~
 {: .language-bash}
@@ -65,7 +65,7 @@ Copy and paste one of the last two urls in your favorite browser and now you can
 
 Since we launch jupyter server frequently, you can make an `alias` for that command in your `~/.bashrc` file
 ~~~
-alias sourcelcg='source /cvmfs/sft.cern.ch/lcg/views/LCG_103/x86_64-centos7-gcc11-opt/setup.sh'
+alias sourcelcg='source /cvmfs/sft.cern.ch/lcg/views/LCG_105/x86_64-el9-gcc11-opt/setup.sh'
 alias launchJupyter='jupyter notebook --no-browser --port=8888 --ip 127.0.0.1'
 ~~~
 {: .language-bash}
