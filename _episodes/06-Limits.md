@@ -59,7 +59,7 @@ git clone https://github.com/cms-analysis/HiggsAnalysis-CombinedLimit.git HiggsA
 cd HiggsAnalysis/CombinedLimit
 cd $CMSSW_BASE/src/HiggsAnalysis/CombinedLimit
 git fetch origin
-git checkout v9.1.0
+git checkout  v10.0.2
 scramv1 b clean; scramv1 b # always make a clean build
 ~~~
 {: .language-bash}
