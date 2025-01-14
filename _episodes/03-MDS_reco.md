@@ -101,12 +101,20 @@ Cluster properties are computed from **constituent** rechits. Here are the descr
 
 > ## Exercise: compute cluster properties
 >
-> Write code to compute the nME11/12. Complete the function `computeME11_12`.
+> Following the definitions above, complete the function `computeCluster`, `computeStationProp` and `computeME11_12`.
+> 
 {: .challenge}
 
 > ## Exercise: plot cluster properties 
 >
-> Plot the cluster properties of background and signal clusters. Hint: you need to repeat everything for signals.
+> Plot the cluster properties of background and signal clusters.
+> 
+> To compute for signal clusters,
+> - run the `DBScan` functions with signal rechits
+> - store the output in a new variable called `s_cls`
+> - add an addition line in `samples` for plotting
+>
+> Try to read and understand the plotting code as well. 
 {: .challenge}
 
 
@@ -115,13 +123,21 @@ Cluster properties are computed from **constituent** rechits. Here are the descr
 > Which variables can be used to distinguish between signal and background? 
 > 
 > > ## Solution:
-> > The most powerful properties are `N_rechits`, `time`, and `ME11_12`.
+> > You should be able to see the `N_rechits`, `time`, and `ME11_12` distributions are very different between signal and background.
+> >
+> > Placing some cuts on these variables should give us separation of signal events from background! 
 > > 
 > {: .solution} 
 {: .discussion}
 
 
 ## MDS reconstruction efficiency
+
+When an LLP decay in CSC, we want to know 
+ - *how often* it can make an MDS cluster (this is cluster efficiency) and
+ - *where* does the LLP decay when this happens
+ 
+In this part, we will make a plot of MDS efficiency as a function LLP decay position and try to understand it. 
 
 > ## Open a notebook
 >
