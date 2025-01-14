@@ -125,13 +125,15 @@ Cluster properties are computed from **constituent** rechits. Here are the descr
 
 > ## Open a notebook
 >
-> For this part, open the notebook called `signal_efficiency_plots.ipynb` to calculate the MDS reconstruction efficiency with respect to the LLP decay position.
+> For this part, continue to the section `MDS reconstruction efficiency for signal` to calculate the MDS reconstruction efficiency with respect to the LLP decay position.
 {: .checklist}
 
 
 > ## Discussion 3.3
 >
 > Why does the efficiency drops off at the two ends of the muon detectors?
+> How does the efficiency varies between the muon stations? Do you understand why?
+> Make a 2D histogram to confirm your understanding!
 > 
 {: .discussion}
 {% include links.md %}
