@@ -48,15 +48,14 @@ This results in the following event topology for signals:
 > ## Figure 4.2
 > <img src="../fig/trigger.png" alt="" style="width: 600px;"/>
 > Diagram demonstrating the signal topology.
->
 > The Higgs is recoiled against an ISR (Initial-State Radiation) jet in a back-to-back configuration.
->
 > The Higgs decay immediately into 2 LLPs.
->
 > When LLPs are decaying in the Muon System or beyond, this will result in MET.
+>
+> Make sure you understand this event topology.
 {: .callout}
 
-> ## Open a notebook
+> ## Check your understanding
 >
 > For this part, open the notebook called `analysis_strategy.ipynb`
 > You will
@@ -190,8 +189,12 @@ In this exercise, we will just plot the distributions of the two variables, to u
 
 > ## Solution 4.1
 > For signal, the cluster corresponds to the LLP direction and MET corresponds to the higgs direction, so the two objects are aligned as you can see from Figure 4.2.
+> 
 > For background, clusters are produced from underlying events, while MET is calculated from primary event, so the two objects are independent.
-> Additionally, since $\Delta\phi\text{(cluster, MET)}$ is flat for background, it is also independent to $N_{\text{hits}}$, which is a key property that we will make use of in the next episode to develop the background estimation method.
+> 
+> Additionally, since $\Delta\phi\text{(cluster, MET)}$ is flat for background, it is also independent to $N_{\text{hits}}$.
+> 
+> This independence is a key property that we will make use of in the next episode to develop the background estimation method.
 {: .solution}
 
 > ## Discussion 4.7
