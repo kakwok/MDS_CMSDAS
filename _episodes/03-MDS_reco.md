@@ -148,7 +148,9 @@ In this part, we will make a plot of MDS efficiency as a function LLP decay posi
 > ## Discussion 3.3
 >
 > Why does the efficiency drops off at the two ends of the muon detectors?
+> 
 > How does the efficiency varies between the muon stations? Do you understand why?
+> 
 > Make a 2D histogram to confirm your understanding!
 > 
 {: .discussion}
