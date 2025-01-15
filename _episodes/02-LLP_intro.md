@@ -95,7 +95,8 @@ Then you will call the reweighting function that you've written in the previous 
 Finally, you will plot the geometric acceptance with respect to the LLP mean proper decay lengths.
 
 > ## Discussion 2.3
-> Do you understand the shape of the geometric acceptance vs. LLP mean proper decay lengths plot? 
+> Do you understand the shape of the geometric acceptance vs. LLP mean proper decay lengths plot?
+> 
 > Why is the peak at 2m, much smaller than the distance between the muon detectors and the interaction point?
 > 
 {: .discussion}
