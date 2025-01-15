@@ -48,7 +48,7 @@ Students will perform the full analysis to search for LLPs decaying in the endca
  * make event displays of signal simulation events
 
 ### Facilitators CMSDAS LPC 2025
-<img src="fig/facilitators.png" alt="" style="width:80%">
+<img src="fig/facilitators_2025.png" alt="" style="width:80%">
 
 <!--  * Martin Kwok (FNAL)
  * Christina Wang (FNAL)
