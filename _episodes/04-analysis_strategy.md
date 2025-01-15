@@ -20,7 +20,9 @@ keypoints:
 
 ## Benchmark model
 The MDS signature is model independent, but to develop an analysis strategy we use the higgs portal as a benchmark model, where the Feynman diagram shown below.
-We choose this model because its one of the more difficult model probe at the LHC, with no stable BSM particles to produce large MET and the final state objects from the higgs are generally low pT, and additionally this model is used commonly across many CMS physics searches for sensitivity comparison
+
+We choose this model because its one of the more difficult model probe at the LHC, with no stable BSM particles to produce large MET and the final state objects from the higgs are generally low pT.
+This model is also used commonly across many CMS physics searches for sensitivity comparison
 
 
 > ## Figure 4.1
@@ -28,21 +30,47 @@ We choose this model because its one of the more difficult model probe at the LH
 > Feynman diagram of the higgs portal model, where a pair of LLPs (S) are produced from the Higgs and the LLPs can decay to fermions.
 {: .callout}
 
-## Trigger strategy and event-level selections
+## Trigger strategy selections
+
+Trigger selection is the beginning of any CMS analysis.
 
 As mentioned in the introductory slides, there's no dedicated trigger for this signature in Run2.
-For the Run2 search, we use the MET trigger, which has a 1% signal efficiency for higgs portal signals.
-For the signal event, when one LLP decays in the muon detector, for LLP $c\tau\sim 1$, in most cases the second LLP also decays outside of the calorimeter, so the MET is highly correlated with the higgs pT, as seen in Figure 1.2
-Therefore, when we require a high MET in the signal event, we are selecting for a boosted Higgs phase space.
 
+We are using `MET > 200 GeV` due to the lack of dedicated trigger on the MDS object.
+
+As a result, in order for signal events to pass the large MET trigger
+ - the Higgs is recoiled against a high pT jet
+ - When the LLPs decays beyond calorimeters, the decay
+ - Since the Higgs has a high pT, the MET will be large
+
+This results in the following event topology for signals:
 
 > ## Figure 4.2
 > <img src="../fig/trigger.png" alt="" style="width: 600px;"/>
 > Diagram demonstrating the signal topology.
+>
+> The Higgs is recoiled against an ISR (Initial-State Radiation) jet in a back-to-back configuration.
+>
+> The Higgs decay immediately into 2 LLPs.
+>
+> When LLPs are decaying in the Muon System or beyond, this will result in MET.
 {: .callout}
 
+> ## Open a notebook
+>
+> For this part, open the notebook called `analysis_strategy.ipynb`
+> You will
+>  - confirm that pT of the Higgs matches the size of MET in the event.
+>  - compute the trigger efficiency for signals
+>
+> The typical trigger efficiency for signals is around 1%
+{: .checklist}
+
+## Event selections
+
 The event selections for this search are kept at minimal to be as model independent as possible.
-We only apply the MET trigger and an offline MET cut of 200 GeV, due to the use of the high-MET skim dataset.
+
+We only apply the MET trigger and an *offline* MET cut of 200 GeV, due to the use of the high-MET skim dataset.
 
 To select for a signal-like cluster from an LLP, we will investigate a number of variables that are used in the analysis that remove punch-through jet and muon brem background in the following sections.
 
@@ -54,6 +82,7 @@ To select for a signal-like cluster from an LLP, we will investigate a number of
 {: .checklist}
 
 At the cluster-level, we don't apply any selections for data, while for signal we select clusters that are matched to generator-level LLPs that decay in the muon detectors.
+
 At the event-level, we only apply the MET trigger, offline MET cut, and the required MET filters that are already encoded in the `metFilters` variable.
 
 ### Punch-through Jet and Muon Bremsstrahlung Background
