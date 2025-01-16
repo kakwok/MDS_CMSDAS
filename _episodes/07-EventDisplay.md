@@ -43,11 +43,10 @@ edmCopyPickMerge outputFile=pickevents.root \
 Depending on how many events you've chosen, the process might long, don't choose more than 10 events!
 Now you have a ROOT file called `pickevents.root` that contains the RECO format of the events you have chosen.
 
-##
 cmsShow is the program used to view event displays. cmsShow is now used with a web-based GUI. Before using the GUI, you need to copy your picked events file to cernbox.
 
-Create a new directory in your personal [cernbox](cernbox.cern.ch). You will need to add viewer access to cms-vis-access
-<img src="./fig/access.png" alt="" style=""/>
+Create a new directory in your personal [cernbox](https://cernbox.cern.ch). You will need to add viewer access to cms-vis-access
+<img src="./fig/access.png" alt="" style="width: 600px;"/>
 
 ## Open the events with cmsShow
 
@@ -55,7 +54,7 @@ Once the file is in cernbox and you have given cms-vis-access viewer permission,
 
 You will now see a graphical interface like this:
 > ## Figure 5.1
-> <img src="../fig/event_display.png" alt="" style="width: 600px;"/>
+> <img src="../fig/event_display_web.png" alt="" style="width: 600px;"/>
 > Event display of a signal event from cmsShow.
 {: .callout}
 
