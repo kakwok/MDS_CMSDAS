@@ -47,7 +47,7 @@ cmsShow is the program used to view event displays. cmsShow is now used with a w
 
 Create a new directory in your personal [cernbox](https://cernbox.cern.ch). You will need to add viewer access to cms-vis-access
 > ## CernBox
-> <img src="./fig/access.png" alt="" style="width: 600px;"/>
+> <img src="../fig/access.png" alt="" style="width: 600px;"/>
 >
 {: .callout}
 ## Open the events with cmsShow
