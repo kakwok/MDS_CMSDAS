@@ -53,7 +53,7 @@ tar xzf cmsShow-12.1.tgz
 cd cmsShow-12.1
 
 # now run cmsShow with pickevents.root
-./cmsShow ../pickevents.root --no-version-check
+./cmsShow ../pickevents.root --no-version-check -- obsolete
 ~~~
  {: .language-bash}
 
