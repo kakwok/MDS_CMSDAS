@@ -43,29 +43,23 @@ edmCopyPickMerge outputFile=pickevents.root \
 Depending on how many events you've chosen, the process might long, don't choose more than 10 events!
 Now you have a ROOT file called `pickevents.root` that contains the RECO format of the events you have chosen.
 
+##
+cmsShow is the program used to view event displays. cmsShow is now used with a web-based GUI. Before using the GUI, you need to copy your picked events file to cernbox.
+
+Create a new directory in your personal [cernbox](cernbox.cern.ch). You will need to add viewer access to cms-vis-access
+<img src="./fig/access.png" alt="" style=""/>
+
 ## Open the events with cmsShow
 
-Run the followin commands to install and run cmsShow:
-~~~
-${CMSSW_BASE}/src/MDS_CMSDAS2023/event_display
-wget https://cmsshow-rels.web.cern.ch/cmsShow-rels/cmsShow-12.1.tgz
-tar xzf cmsShow-12.1.tgz
-cd cmsShow-12.1
-
-# now run cmsShow with pickevents.root
-./cmsShow ../pickevents.root --no-version-check -- obsolete
-~~~
- {: .language-bash}
+Once the file is in cernbox and you have given cms-vis-access viewer permission, you can view the event by going to [cmsShow](https://fireworks.cern.ch)
 
 You will now see a graphical interface like this:
-
-
 > ## Figure 5.1
 > <img src="../fig/event_display.png" alt="" style="width: 600px;"/>
 > Event display of a signal event from cmsShow.
 {: .callout}
 
-By default the `csc2DRecHits` are not included in the display, go to Add Collection on the left to add the rechits collections!
+By default the `csc2DRecHits` are not included in the display, go to Add Collectionon the left to add the rechits collections!
 Now you can skim through the events that you have selected to see if the clusters appear as you've expected.
 
 {% include links.md %}
