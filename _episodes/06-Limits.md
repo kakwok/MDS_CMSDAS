@@ -68,6 +68,7 @@ Choose any of the datacards that you've produced and run the following commands:
 
 ~~~
 combine -M MultiDimFit datacard.txt --saveWorkspace -n Snapshot --freezeParameters r,norm --setParameters r=0,norm=0.001
+
 combine -M FitDiagnostics  --snapshotName MultiDimFit --bypassFrequentistFit higgsCombineSnapshot.MultiDimFit.mH120.root --saveNormalizations --saveShapes --saveWithUncertainties
 ~~~
 {: .language-bash}
@@ -106,6 +107,8 @@ Since we have normalized our signal yield to assume BR(h$\rightarrow$ SS) = 1, t
 > ## Open a script
 >
 > For this part, open the python script `scripts/run_combine.py` to run over all of the datacards that you produced in the previous exercise and save all the ROOT files in a directory.
+>
+> * You will have to update the directory of the datacards in the script*
 {: .checklist}
 
 
