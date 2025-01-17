@@ -26,7 +26,7 @@ if __name__ == "__main__":
     #list all the DT cards
     CMSSW_BASE = os.getenv('CMSSW_BASE')
 
-    card_dir= CMSSW_BASE + "/src/solution/MDS_CMSDAS/combine/datacards/"
+    card_dir= CMSSW_BASE + "path_to_datacard"
 
     output_tree_dir = card_dir.replace('datacards', 'limitTrees')
     print(output_tree_dir)
