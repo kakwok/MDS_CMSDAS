@@ -26,7 +26,9 @@ if __name__ == "__main__":
     #list all the DT cards
     CMSSW_BASE = os.getenv('CMSSW_BASE')
 
-    card_dir= CMSSW_BASE + "path_to_datacard"
+    # Solution: the datacards are written by create_datacard.ipynb to <repo>/combine/datacards/,
+    # and the repo lives at $CMSSW_BASE/src/MDS_CMSDAS, so the full path is built from CMSSW_BASE.
+    card_dir= CMSSW_BASE + "/src/MDS_CMSDAS/combine/datacards/"
 
     output_tree_dir = card_dir.replace('datacards', 'limitTrees')
     print(output_tree_dir)
@@ -49,7 +51,12 @@ if __name__ == "__main__":
         norm = readNorm(card_dir + name + '.txt')
 
         if norm == 0.0:continue
-        comb_limit = "combine -M AsymptoticLimits  {card_dir}/{card}.txt -n.{card} --setParameters norm={norm} --freezeParameter=norm".format(card_dir=card_dir,card=name,norm = 1./norm)
+        # Solution: norm is the rateParam that scales the signal. We set norm = 1/sigA (sigA = signal
+        # yield in bin A at BR = 1) so that the expected signal in bin A is ~1 event and the fitted r
+        # stays in the 1-15 range where AsymptoticLimits is reliable. We freeze norm so Combine does not
+        # float it, and r then gives the limit on BR(h->SS) after dividing by sigA in limitPlot.ipynb.
+        # The option is --freezeParameters (plural), as in the episode text.
+        comb_limit = "combine -M AsymptoticLimits  {card_dir}/{card}.txt -n.{card} --setParameters norm={norm} --freezeParameters norm".format(card_dir=card_dir,card=name,norm = 1./norm)
         #print(comb_limit)
         os.system(comb_limit)
         os.system("mv higgsCombine.{}.AsymptoticLimits.mH120.root {}/".format(name, output_tree_dir))
