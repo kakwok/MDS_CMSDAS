@@ -23,17 +23,14 @@ if __name__ == "__main__":
     parser.add_option('--dryRun', dest='dryRun', action="store_true",default = False, help='print cmds')
     (options, args) = parser.parse_args()
 
-    #list all the DT cards
-    CMSSW_BASE = os.getenv('CMSSW_BASE')
-
-    card_dir= CMSSW_BASE + "path_to_datacard"
+    # datacards written by create_datacard.ipynb live in <repo>/combine/datacards
+    repo_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    card_dir = os.path.join(repo_dir, 'combine', 'datacards') + '/'
 
     output_tree_dir = card_dir.replace('datacards', 'limitTrees')
     print(output_tree_dir)
     if not os.path.exists(output_tree_dir):os.system("mkdir -p %s"%output_tree_dir)
     ctau_list = [5,10,15,20,30,40, 50,60, 100, 125,150,200,300,500,600,700,800,900,1000, 2000,3000,4000, 5000, 6000,7000,8000,10000, 20000,30000,50000, 100000, 200000, 300000, 500000, 1000000, 2000000, 3000000, 5000000, 6000000, 10000000] #mm
-
-
 
     ##ctau_list = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]
     sample_name = 'ggH_HToSSTobbbb_mh125_mx40'
@@ -43,13 +40,15 @@ if __name__ == "__main__":
 
         ### check all files exist
         if not os.path.isfile(card_dir + name + '.txt'):
-    	    print(card_dir + name + '.txt')
-    	    continue
-        #normalization = readNorm(twoTag_card_dir + twoTag_name + '.txt')
+            print(card_dir + name + '.txt')
+            continue
         norm = readNorm(card_dir + name + '.txt')
 
         if norm == 0.0:continue
-        comb_limit = "combine -M AsymptoticLimits  {card_dir}/{card}.txt -n.{card} --setParameters norm={norm} --freezeParameter=norm".format(card_dir=card_dir,card=name,norm = 1./norm)
-        #print(comb_limit)
+        # norm = 1/signal_yield_in_bin_A so that r is the number of signal events in A
+        comb_limit = "combine -M AsymptoticLimits {card_dir}{card}.txt -n.{card} --setParameters norm={norm} --freezeParameters norm".format(card_dir=card_dir,card=name,norm = 1./norm)
+        if options.dryRun:
+            print(comb_limit)
+            continue
         os.system(comb_limit)
         os.system("mv higgsCombine.{}.AsymptoticLimits.mH120.root {}/".format(name, output_tree_dir))
